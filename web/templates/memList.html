@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>list</title>
+        <meta charset="utf-8" http-equiv="refresh" content="60",url='http://127.0.0.1:5000/table'>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/MemList.css') }}">
+        <script src="{{url_for('static',filename='js/jquery-3.3.1.min.js')}}"></script>
+    </head>
+    <body>
+        <div class="header">
+            <span class="title">
+                Logs
+            </span>
+        </div>
+        <div class="overlay"></div>
+        <div class="li">
+            <table border="1" id="html_table">
+            </table>
+        </div>
+        <div class="videoPlay">
+            <video src="?" class="videoSrc" width="600px" height="360px" controls preload></video>
+            <div class="winClose">
+                    <button>Close</button>
+            </div>
+        </div>
+        <script>
+                var str = '{{ data|tojson }}'
+                document.getElementById('html_table').innerHTML = str.substring(1,str.length-1)
+            </script>
+    </body>
+</html>
